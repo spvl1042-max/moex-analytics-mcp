@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: moex-analytics-mcp
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /mcp

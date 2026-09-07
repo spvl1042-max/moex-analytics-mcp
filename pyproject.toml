@@ -1,0 +1,30 @@
+[project]
+name = "moex-analytics-mcp"
+version = "0.1.0"
+description = "Read-only MCP server for Moscow Exchange ISS market data"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "mcp[cli]>=2.0.0",
+  "httpx>=0.27.0",
+  "pydantic>=2.7.0"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "pytest-asyncio>=0.23.0"
+]
+
+[project.scripts]
+moex-mcp = "moex_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/moex_mcp"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
